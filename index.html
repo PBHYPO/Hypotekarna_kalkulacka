@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ProHypo - Patrik Buchanec, hypotekárny špecialista</title>
+<meta name="description" content="Hypotéka nemusí byť hádanka. Vypočítajte si orientačnú splátku a nechajte si pripraviť ponuku na mieru.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #14244F;
+    --navy-soft: #223a72;
+    --blue: #2DAAE1;
+    --blue-deep: #1c8ec1;
+    --ice: #EEF6FB;
+    --paper: #FDFEFE;
+    --slate: #5B6B85;
+    --line: #DDE7F0;
+    --radius: 14px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--navy);
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3{
+    font-family: 'Montserrat', -apple-system, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0;
+    color: var(--navy);
+  }
+  a{ color: inherit; }
+  img{ max-width: 100%; display:block; }
+
+  .wrap{
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* Header */
+  header{
+    padding: 26px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  header .wrap{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .brand{ display:flex; align-items:center; gap:18px; }
+  .brand img{ height: 52px; width:auto; }
+  .brand-name{
+    font-size: 14px;
+    color: var(--slate);
+    border-left: 1px solid var(--line);
+    padding-left: 18px;
+    line-height: 1.3;
+  }
+  .brand-name strong{ color: var(--navy); font-weight: 600; display:block; }
+  nav a{
+    text-decoration:none;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--navy);
+    padding: 10px 20px;
+    border-radius: 999px;
+    background: var(--ice);
+    transition: background .15s ease;
+  }
+  nav a:hover{ background: #dcedf8; }
+
+  /* Hero */
+  .hero{
+    padding: 88px 0 70px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: 56px;
+    align-items: end;
+  }
+  .roofmark{
+    position:absolute;
+    top: -60px;
+    right: -40px;
+    width: 340px;
+    height: 340px;
+    opacity: .06;
+    z-index: 0;
+    pointer-events:none;
+  }
+  .kicker{
+    font-size: 14px;
+    color: var(--blue-deep);
+    font-weight: 600;
+    margin: 0 0 18px;
+  }
+  h1{
+    font-size: clamp(34px, 4.4vw, 52px);
+    line-height: 1.1;
+  }
+  .hero-lede{
+    margin-top: 22px;
+    font-size: 17px;
+    color: var(--slate);
+    max-width: 46ch;
+  }
+  .hero-cta{
+    margin-top: 30px;
+    display:flex;
+    gap:14px;
+    flex-wrap: wrap;
+  }
+  .btn{
+    display:inline-block;
+    text-decoration:none;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 14px 26px;
+    border-radius: 999px;
+    background: var(--navy);
+    color: #fff;
+    transition: transform .15s ease, background .15s ease;
+  }
+  .btn:hover{ background: var(--navy-soft); transform: translateY(-1px); }
+  .btn.ghost{
+    background: transparent;
+    color: var(--navy);
+    border: 1px solid var(--line);
+  }
+  .btn.ghost:hover{ border-color: var(--blue); background: var(--ice); }
+
+  .hero-card{
+    background: var(--navy);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 30px 28px;
+  }
+  .hero-card .stat{
+    font-family: 'Montserrat', serif;
+    font-size: 38px;
+    color: var(--blue);
+    line-height: 1;
+  }
+  .hero-card .stat-label{
+    margin-top: 10px;
+    font-size: 14px;
+    color: #c7d3e8;
+  }
+  .hero-card ul{
+    list-style:none;
+    padding:0;
+    margin: 24px 0 0;
+    border-top: 1px solid rgba(255,255,255,.14);
+    padding-top: 20px;
+  }
+  .hero-card li{
+    font-size: 14px;
+    color: #dfe7f5;
+    padding: 7px 0;
+    display:flex;
+    gap: 10px;
+  }
+  .hero-card li::before{
+    content: "";
+    width: 6px; height: 6px;
+    margin-top: 7px;
+    background: var(--blue);
+    border-radius: 50%;
+    flex-shrink:0;
+  }
+
+  /* About */
+  .about{
+    padding: 76px 0 10px;
+  }
+  .about .wrap{
+    display:grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 52px;
+    align-items: center;
+  }
+  .about-photo{
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 22px 44px -26px rgba(20,36,79,.35);
+  }
+  .about-photo img{ width: 100%; height: auto; display:block; }
+  .about-text .kicker{ margin-bottom: 14px; }
+  .about-text h2{ font-size: 28px; }
+  .about-text p{
+    margin-top: 16px;
+    font-size: 15.5px;
+    color: var(--slate);
+    max-width: 52ch;
+  }
+  .about-tags{
+    margin-top: 24px;
+    display:flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .about-tags span{
+    font-size: 13px;
+    color: var(--navy);
+    background: var(--ice);
+    border: 1px solid var(--line);
+    padding: 7px 14px;
+    border-radius: 999px;
+  }
+
+  :root{
+    --bg: var(--ice);
+    --surface: var(--paper);
+    --ink: var(--navy);
+    --ink-soft: var(--slate);
+    --green: var(--navy-soft);
+    --green-dark: var(--navy);
+    --gold: var(--blue);
+    --ok: #3D6B4F;
+    --warn: #B8792E;
+    --risk: #A24A3F;
+  }
+
+  .calc-card{
+    max-width:640px;
+    margin:0 auto;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:28px;
+  }
+  .calc-card h2{font-size:1.15rem;color:var(--green-dark);margin-bottom:4px;}
+  .calc-sub{font-size:0.85rem;color:var(--ink-soft);margin-bottom:22px;}
+
+  .group-label{font-size:0.75rem;text-transform:none;color:var(--ink-soft);margin:22px 0 12px;padding-top:16px;border-top:1px solid var(--line);}
+  .group-label:first-of-type{margin-top:0;padding-top:0;border-top:none;}
+
+  .field{margin-bottom:18px;}
+  .field label{
+    display:flex;justify-content:space-between;align-items:baseline;
+    font-size:0.85rem;color:var(--ink-soft);margin-bottom:6px;
+  }
+  .field label .val{font-family:'Montserrat', sans-serif;font-weight:600;color:var(--green-dark);font-variant-numeric:tabular-nums;}
+  .field input[type="number"]{
+    width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:3px;
+    font-size:1rem;font-family:inherit;background:#fff;color:var(--ink);
+    font-variant-numeric:tabular-nums;
+  }
+  .field input[type="number"]:focus, .field input[type="range"]:focus{
+    outline:2px solid var(--green);outline-offset:2px;
+  }
+  .field input[type="range"]{
+    width:100%;accent-color:var(--green);
+  }
+
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  @media(max-width:420px){.three-col{grid-template-columns:1fr 1fr;}}
+
+  .result{
+    margin-top:22px;padding:18px;border-radius:3px;background:var(--bg);
+    border:1px solid var(--line);
+  }
+  .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:6px 0;}
+  .result-row + .result-row{border-top:1px solid var(--line);}
+  .result-row .label{font-size:0.85rem;color:var(--ink-soft);}
+  .result-row .num{font-size:1.4rem;font-weight:600;color:var(--green-dark);font-variant-numeric:tabular-nums;}
+  .result-row.small .num{font-size:1rem;font-weight:500;color:var(--ink);}
+
+  .verdict{margin-top:14px;padding:12px 14px;border-radius:3px;font-size:0.88rem;display:flex;gap:8px;align-items:flex-start;}
+  .verdict.ok{background:#E7EFE9;color:var(--ok);}
+  .verdict.warn{background:#F5EBDB;color:var(--warn);}
+  .verdict.risk{background:#F3E3E0;color:var(--risk);}
+  .verdict .dot{width:8px;height:8px;border-radius:50%;margin-top:6px;flex-shrink:0;background:currentColor;}
+  .verdict .vtext b{display:block;margin-bottom:2px;}
+
+  .breakdown{margin-top:10px;font-size:0.78rem;color:var(--ink-soft);}
+  .breakdown summary{cursor:pointer;color:var(--green-dark);}
+  .breakdown .bd-row{display:flex;justify-content:space-between;padding:4px 0;}
+
+  .disclaimer{margin-top:12px;font-size:0.75rem;color:var(--ink-soft);}
+
+  .cta-block{
+    margin-top:22px;padding-top:20px;border-top:1px dashed var(--line);
+  }
+  .cta-block h3{font-size:1rem;color:var(--green-dark);margin-bottom:4px;}
+  .cta-block p{font-size:0.85rem;color:var(--ink-soft);margin:4px 0 16px;}
+  .lead-form .two-col{margin-bottom:12px;}
+  .lead-form input, .lead-form textarea{
+    width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:3px;
+    font-size:0.95rem;font-family:inherit;background:#fff;color:var(--ink);margin-bottom:12px;
+  }
+  .lead-form textarea{resize:vertical;min-height:60px;}
+  .lead-form input:focus, .lead-form textarea:focus{outline:2px solid var(--green);outline-offset:1px;}
+  .submit-btn{
+    width:100%;padding:13px 16px;background:var(--green);color:#fff;border:none;
+    border-radius:3px;font-size:0.95rem;font-family:inherit;font-weight:500;cursor:pointer;
+    transition:background 0.15s ease;
+  }
+  .submit-btn:hover{background:var(--green-dark);}
+  .submit-btn:disabled{opacity:0.6;cursor:default;}
+  .form-note{font-size:0.75rem;color:var(--ink-soft);margin-top:10px;text-align:center;}
+  .thanks{
+    padding:20px;background:#E7EFE9;border-radius:3px;color:var(--ok);font-size:0.95rem;
+  }
+  .thanks b{display:block;font-family:'Montserrat', sans-serif;font-weight:700;font-size:1.15rem;margin-bottom:6px;color:var(--green-dark);}
+  .err{color:var(--risk);font-size:0.8rem;margin:-6px 0 12px;}
+
+  /* Calculator section */
+  .calc-section{
+    background: var(--ice);
+    padding: 70px 0 80px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .section-head{
+    max-width: 60ch;
+    margin: 0 0 34px;
+  }
+  .section-head h2{ font-size: 30px; }
+  .section-head p{
+    margin-top: 12px;
+    color: var(--slate);
+    font-size: 15.5px;
+  }
+  /* Process */
+  .process{
+    padding: 78px 0;
+  }
+  .steps{
+    margin-top: 40px;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  .step{
+    padding: 0 28px 0 0;
+    position: relative;
+  }
+  .step + .step{
+    border-left: 1px solid var(--line);
+    padding-left: 28px;
+  }
+  .step-num{
+    display:inline-block;
+    width: 28px;
+    height: 2px;
+    background: var(--blue);
+  }
+  .step h3{
+    font-size: 19px;
+    margin-top: 10px;
+  }
+  .step p{
+    margin-top: 10px;
+    font-size: 14.5px;
+    color: var(--slate);
+  }
+
+  /* Footer */
+  footer{
+    background: var(--navy);
+    color: #cfd9ec;
+    padding: 54px 0 34px;
+  }
+  footer .wrap{
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  footer img{ height: 40px; margin-bottom: 16px; }
+  footer .foot-copy{ font-size: 13.5px; color: #9aabc9; max-width: 40ch; }
+  footer nav{ display:flex; flex-direction: column; gap: 10px; }
+  footer nav a{
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration:none;
+    color: var(--navy);
+    background: #fff;
+    display:flex;
+    align-items:center;
+    gap: 9px;
+    padding: 9px 16px;
+    border-radius: 999px;
+    width: fit-content;
+    transition: background .15s ease;
+  }
+  footer nav a:hover{ background: var(--ice); }
+  footer .foot-links{ display:flex; gap: 22px; margin-top: 22px; }
+  footer .foot-links a{
+    font-size: 13.5px;
+    text-decoration:none;
+    color: #9aabc9;
+  }
+  footer .foot-links a:hover{ color: #fff; }
+  .foot-col-title{
+    font-size: 12.5px;
+    text-transform: none;
+    color: #7f90b2;
+    margin: 0 0 14px;
+    font-weight: 600;
+  }
+  .foot-bottom{
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,.12);
+    font-size: 13px;
+    color: #7f90b2;
+  }
+
+  @media (max-width: 860px){
+    .hero .wrap{ grid-template-columns: 1fr; }
+    .about .wrap{ grid-template-columns: 1fr; }
+    .about-photo{ max-width: 340px; margin: 0 auto; }
+    .hero-card{ order: -1; }
+    .steps{ grid-template-columns: 1fr; gap: 28px; }
+    .step + .step{ border-left:0; padding-left:0; border-top: 1px solid var(--line); padding-top: 28px; }
+    header .wrap{ flex-direction: column; align-items: flex-start; gap: 14px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    .btn:hover{ transform:none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <img src="assets/logo-positive.png" alt="ProHypo">
+      <span class="brand-name"><strong>Patrik Buchanec</strong>hypotekárny špecialista</span>
+    </div>
+    <nav>
+      <a href="#kalkulacka">Kalkulačka</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <svg class="roofmark" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M50 5 L95 45 H80 V90 H55 V60 H45 V90 H20 V45 H5 Z" stroke="#14244F" stroke-width="4"/>
+  </svg>
+  <div class="wrap">
+    <div>
+      <p class="kicker">Nezávislé hypotekárne poradenstvo</p>
+      <h1>Hypotéku vám nájdem ja, vy sa venujte sťahovaniu.</h1>
+      <p class="hero-lede">Prejdem trh za vás, porovnám podmienky viacerých bánk a postarám sa o papierovanie - od prvého odhadu splátky až po podpis zmluvy.</p>
+      <div class="hero-cta">
+        <a href="#kalkulacka" class="btn">Spočítať si splátku</a>
+        <a href="ochrana-osobnych-udajov.html" class="btn ghost">Ochrana údajov</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="stat">&lt; 1 min</div>
+      <div class="stat-label">toľko trvá orientačný výpočet</div>
+      <ul>
+        <li>Oslovím viaceré banky, aby sme dostali najvýhodnejšie podmienky</li>
+        <li>Vysvetlím, prečo vám banka schváli alebo neschváli danú sumu</li>
+        <li>Prevediem vás celým procesom a ostávam s vami aj po načerpaní úveru</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="wrap">
+    <div class="about-photo">
+      <img src="assets/patrik-photo.jpg" alt="Patrik Buchanec, hypotekárny špecialista">
+    </div>
+    <div class="about-text">
+      <p class="kicker">O mne</p>
+      <h2>Nájdem vám hypotéku, ktorú naozaj unesiete.</h2>
+      <p>Som Patrik Buchanec, hypotekárny špecialista. Roky pomáham klientom vybrať si hypotéku, ktorá im sedí - nie tú s najkrajšou reklamou, ale tú, ktorú bez stresu ustoja aj o pár rokov.</p>
+      <p>Prejdem s vami čísla, porovnám ponuky bánk a postarám sa o papierovanie, aby ste sa museli rozhodnúť len raz - a dobre.</p>
+      <div class="about-tags">
+        <span>Nezávislé poradenstvo</span>
+        <span>Porovnanie viacerých bánk</span>
+        <span>Konzultácie zadarmo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="calc-section" id="kalkulacka">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Koľko by vás hypotéka stála?</h2>
+      <p>Zadajte pár čísel o nehnuteľnosti a domácnosti a hneď uvidíte orientačnú splátku aj to, či na ňu podľa bankových pravidiel dosiahnete.</p>
+    </div>
+      <div class="calc-card">
+        <div class="group-label">Nehnuteľnosť a úver</div>
+
+        <div class="field">
+          <label for="price">Cena nehnuteľnosti <span class="val" id="priceVal">150 000 €</span></label>
+          <input type="number" id="price" value="150000" min="10000" step="1000">
+        </div>
+
+        <div class="field">
+          <label for="down">Vlastné zdroje <span class="val" id="downVal">15 000 €</span></label>
+          <input type="number" id="down" value="30000" min="0" step="500">
+        </div>
+
+        <div class="field">
+          <label>Výška úveru <span class="val" id="loanVal">135 000 €</span></label>
+        </div>
+
+        <div class="two-col">
+          <div class="field">
+            <label for="rate">Úroková sadzba <span class="val" id="rateVal">3,90 %</span></label>
+            <input type="range" id="rate" min="2" max="7" step="0.05" value="3.9">
+          </div>
+          <div class="field">
+            <label for="years">Splatnosť <span class="val" id="yearsVal">30 rokov</span></label>
+            <input type="range" id="years" min="5" max="30" step="1" value="30">
+          </div>
+        </div>
+
+        <div class="group-label">Domácnosť žiadateľa</div>
+
+        <div class="field">
+          <label for="income">Čistý mesačný príjem domácnosti <span class="val" id="incomeVal">1 500 €</span></label>
+          <input type="number" id="income" value="1500" min="300" step="50">
+        </div>
+
+        <div class="three-col">
+          <div class="field">
+            <label for="adults">Dospelí <span class="val" id="adultsVal">1</span></label>
+            <input type="number" id="adults" value="1" min="1" max="6" step="1">
+          </div>
+          <div class="field">
+            <label for="children">Deti <span class="val" id="childrenVal">0</span></label>
+            <input type="number" id="children" value="0" min="0" max="8" step="1">
+          </div>
+          <div class="field">
+            <label for="existing">Iné splátky/mes. <span class="val" id="existingVal">0 €</span></label>
+            <input type="number" id="existing" value="0" min="0" step="10">
+          </div>
+        </div>
+
+        <div class="result">
+          <div class="result-row">
+            <span class="label">Odhadovaná splátka novej hypotéky</span>
+            <span class="num" id="monthlyOut">- €</span>
+          </div>
+          <div class="result-row small">
+            <span class="label">Max. splátka podľa DSTI limitu banky</span>
+            <span class="num" id="maxDstiOut">- €</span>
+          </div>
+          <div class="result-row small">
+            <span class="label">LTV - úver k cene nehnuteľnosti</span>
+            <span class="num" id="ltvOut">- %</span>
+          </div>
+          <div class="result-row small">
+            <span class="label">Celkovo preplatíte na úrokoch</span>
+            <span class="num" id="interestOut">- €</span>
+          </div>
+        </div>
+
+        <div class="verdict ok" id="verdictBox">
+          <div class="dot"></div>
+          <div class="vtext" id="verdictText">Vyplňte údaje pre vyhodnotenie.</div>
+        </div>
+
+        <details class="breakdown">
+          <summary>Ako sa to počíta</summary>
+          <div id="breakdownContent"></div>
+        </details>
+
+        <p class="disclaimer">Výpočet je orientačný a nezohľadňuje poplatky, poistenie, vek žiadateľa ani individuálne podmienky banky.</p>
+
+        <div class="cta-block" id="ctaBlock">
+          <h3>Chcete presnú ponuku šitú na mieru?</h3>
+          <p>Nechajte mi kontakt - ozvem sa vám do 24 hodín s konkrétnymi možnosťami od bánk.</p>
+
+          <form class="lead-form" id="leadForm">
+            <div class="two-col">
+              <div>
+                <input type="text" id="leadName" placeholder="Meno a priezvisko" required>
+              </div>
+              <div>
+                <input type="tel" id="leadPhone" placeholder="Telefón" required>
+              </div>
+            </div>
+            <input type="email" id="leadEmail" placeholder="E-mail (nepovinné)">
+            <textarea id="leadNote" placeholder="Poznámka - napr. kedy vám mám zavolať (nepovinné)"></textarea>
+<label style="display:flex;gap:8px;align-items:flex-start;font-size:0.75rem;color:var(--ink-soft);margin:0 0 12px;"><input type="checkbox" id="leadConsent" required style="margin-top:3px;"><span>Súhlasím so spracovaním údajov na účely kontaktovania ohľadom hypotekárnej ponuky.</span></label>
+            <div class="err" id="leadErr" style="display:none;"></div>
+            <button type="submit" class="submit-btn" id="leadSubmitBtn">Odoslať a chcem ponuku</button>
+            <p class="form-note">Vaše údaje použijem výlučne na to, aby som vám pripravil ponuku hypotéky.</p>
+          </form>
+
+          <div class="thanks" id="thanksBox" style="display:none;">
+            <b>Ďakujem!</b>
+            Mám vaše údaje aj orientačný výpočet. Ozvem sa vám do 24 hodín.
+          </div>
+        </div>
+      </div>
+
+  </div>
+</section>
+
+<section class="process">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Prečo riešiť hypotéku so mnou</h2>
+      <p>Nie som viazaný na jednu banku - mojou úlohou je nájsť riešenie, ktoré prejde a bude vám dávať zmysel aj o pár rokov.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num"></div>
+        <h3>Poznám podmienky bánk zvnútra</h3>
+        <p>Viem, čo si jednotlivé banky reálne pýtajú a kde je priestor na vyjednávanie - ušetrí vám to čas aj zbytočné odmietnutia.</p>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <h3>Zvládnem aj zložitejšie prípady</h3>
+        <p>Príjem zo živnosti, s.r.o., prenájmu, kombinácie rôznych účelov a príjmov, poradím si tam, kde bežný bankový poradca povie nie.</p>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <h3>Ostávam k dispozícii aj po podpise</h3>
+        <p>Keď sa o pár rokov zmenia sadzby alebo vaša situácia, pomôžem vám hypotéku refinancovať alebo upraviť podmienky.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <img src="assets/logo-negative.png" alt="ProHypo">
+      <p class="foot-copy">Patrik Buchanec - hypotekárne poradenstvo. Výpočty v kalkulačke sú orientačné a nezohľadňujú poplatky, poistenie ani individuálne podmienky banky.</p>
+      <div class="foot-links">
+        <a href="#kalkulacka">Kalkulačka</a>
+        <a href="ochrana-osobnych-udajov.html">Ochrana osobných údajov</a>
+      </div>
+    </div>
+    <nav>
+      <p class="foot-col-title">Kontakt</p>
+      <a href="tel:+421950590434">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        0950 590 434
+      </a>
+      <a href="mailto:patrik.buchanec@prohypo.sk">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" stroke="none"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+        patrik.buchanec@prohypo.sk
+      </a>
+      <a href="https://instagram.com/easy_hypo" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+        @easy_hypo
+      </a>
+      <a href="https://prohypo.sk" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        prohypo.sk
+      </a>
+    </nav>
+  </div>
+  <div class="wrap foot-bottom">
+    © <span id="year"></span> Patrik Buchanec
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const DEFAULT_SETTINGS = {
+  rate: 3.9,
+  dstiPercent: 60,
+  dtiMultiple: 8,
+  ltvStandard: 80,
+  ltvMax: 90,
+  zm1: 295.22,
+  zm2: 205.96,
+  zm3: 134.80,
+  passcode: 'hypo2026'
+};
+
+let settings = { ...DEFAULT_SETTINGS };
+
+// Nastavte po nasadení Google Apps Script webovej aplikácie.
+// Príklad: https://script.google.com/macros/s/ABC123/exec
+const LEAD_ENDPOINT = 'https://script.google.com/macros/s/AKfycbya-4INjm25jAZb2V1KMuCht-0-Isu3-rbR7HwAACqjy5f9DIOP6PeGAtMRV7019dGs/exec';
+
+function fmtEUR(n){
+  return Math.round(n).toLocaleString('sk-SK') + ' €';
+}
+
+const priceEl = document.getElementById('price');
+const downEl = document.getElementById('down');
+const rateEl = document.getElementById('rate');
+const yearsEl = document.getElementById('years');
+const incomeEl = document.getElementById('income');
+const adultsEl = document.getElementById('adults');
+const childrenEl = document.getElementById('children');
+const existingEl = document.getElementById('existing');
+
+// Predvolená sadzba je riadená z jedného miesta.
+// Tým sa zabráni tomu, aby HTML a JavaScript používali rozdielne hodnoty.
+rateEl.value = DEFAULT_SETTINGS.rate.toFixed(2);
+
+let lastCalc = {};
+
+function calc(){
+  const price = Math.max(0, Number(priceEl.value) || 0);
+  const down = Math.max(0, Number(downEl.value) || 0);
+  const rate = Number(rateEl.value);
+  const years = Number(yearsEl.value);
+  const income = Math.max(1, Number(incomeEl.value) || 1);
+  const adults = Math.max(1, Number(adultsEl.value) || 1);
+  const children = Math.max(0, Number(childrenEl.value) || 0);
+  const existing = Math.max(0, Number(existingEl.value) || 0);
+
+  const loan = Math.max(0, price - down);
+  const r = rate / 100 / 12;
+  const n = years * 12;
+  const monthly = r === 0 ? loan / n : loan * r / (1 - Math.pow(1 + r, -n));
+  const totalPaid = monthly * n;
+  const interest = totalPaid - loan;
+
+  // Životné minimum domácnosti: 1. dospelý + (ďalší dospelí) + deti
+  const livingMin = settings.zm1 + Math.max(0, adults - 1) * settings.zm2 + children * settings.zm3;
+  const disposable = Math.max(0, income - livingMin);
+  const maxDsti = Math.max(0, disposable * (settings.dstiPercent / 100) - existing);
+
+  const annualIncome = income * 12;
+  const maxLoanDti = annualIncome * settings.dtiMultiple;
+
+  const dstiOk = monthly <= maxDsti;
+  const dtiOk = loan <= maxLoanDti;
+
+  const ltv = price > 0 ? (loan / price) * 100 : 0;
+  const ltvBlocked = ltv > settings.ltvMax;
+  const ltvIndividual = ltv > settings.ltvStandard && ltv <= settings.ltvMax;
+  const ltvOk = ltv <= settings.ltvStandard;
+
+  // UI updates
+  document.getElementById('priceVal').textContent = fmtEUR(price);
+  document.getElementById('downVal').textContent = fmtEUR(down);
+  document.getElementById('loanVal').textContent = fmtEUR(loan);
+  document.getElementById('rateVal').textContent = rate.toFixed(2).replace('.', ',') + ' %';
+  document.getElementById('yearsVal').textContent = years + (years === 1 ? ' rok' : years < 5 ? ' roky' : ' rokov');
+  document.getElementById('incomeVal').textContent = fmtEUR(income);
+  document.getElementById('adultsVal').textContent = adults;
+  document.getElementById('childrenVal').textContent = children;
+  document.getElementById('existingVal').textContent = fmtEUR(existing);
+
+  document.getElementById('monthlyOut').textContent = fmtEUR(monthly);
+  document.getElementById('maxDstiOut').textContent = fmtEUR(maxDsti);
+  document.getElementById('ltvOut').textContent = ltv.toFixed(1).replace('.', ',') + ' %';
+  document.getElementById('interestOut').textContent = fmtEUR(interest);
+
+  const verdictBox = document.getElementById('verdictBox');
+  const verdictText = document.getElementById('verdictText');
+  verdictBox.classList.remove('ok', 'warn', 'risk');
+
+  // Zozbieraj všetky problémy, zoraď podľa závažnosti (risk > warn)
+  const issues = [];
+
+  if (ltvBlocked) {
+    issues.push({
+      level: 'risk',
+      html: '<b>LTV ' + ltv.toFixed(0) + ' % presahuje maximum ' + settings.ltvMax + ' %.</b>Pri tomto pomere vlastných zdrojov k cene nehnuteľnosti banka úver bežne vôbec neposkytne - potrebujete vyššie vlastné zdroje.'
+    });
+  }
+
+  if (!dstiOk) {
+    const overBy = monthly - maxDsti;
+    issues.push({
+      level: overBy / Math.max(maxDsti, 1) > 0.15 ? 'risk' : 'warn',
+      html: '<b>Splátka prekračuje DSTI limit o ' + fmtEUR(overBy) + ' mesačne.</b>Pri tomto príjme a zložení domácnosti banka bežne povolí splátku max. ' + fmtEUR(maxDsti) + '.'
+    });
+  }
+
+  if (!dtiOk) {
+    issues.push({
+      level: 'warn',
+      html: '<b>Výška úveru prekračuje DTI limit.</b>Maximálny úver pri tomto príjme je okolo ' + fmtEUR(maxLoanDti) + '.'
+    });
+  }
+
+  if (!ltvBlocked && ltvIndividual) {
+    issues.push({
+      level: 'warn',
+      html: '<b>LTV je ' + ltv.toFixed(0) + ' % - nad štandardnou hranicou ' + settings.ltvStandard + ' %.</b>Úver do ' + settings.ltvMax + ' % LTV je možný, ale banka ho posudzuje individuálne a nie je zaručený.'
+    });
+  }
+
+  if (issues.length === 0) {
+    verdictBox.classList.add('ok');
+    verdictText.innerHTML = '<b>Podľa DSTI, DTI aj LTV limitu je hypotéka dosiahnuteľná.</b>Máte rezervu ' + fmtEUR(maxDsti - monthly) + ' mesačne oproti DSTI limitu a LTV ' + ltv.toFixed(0) + ' % je v štandardnom pásme.';
+  } else {
+    const worst = issues.some(i => i.level === 'risk') ? 'risk' : 'warn';
+    verdictBox.classList.add(worst);
+    verdictText.innerHTML = issues.map(i => '<div style="margin-bottom:8px;">' + i.html + '</div>').join('');
+  }
+
+  let ltvStatusLabel;
+  if (ltvBlocked) ltvStatusLabel = 'nad maximom';
+  else if (ltvIndividual) ltvStatusLabel = 'individuálne posúdenie';
+  else ltvStatusLabel = 'štandard';
+
+  document.getElementById('breakdownContent').innerHTML =
+    '<div class="bd-row"><span>Životné minimum domácnosti</span><span>' + fmtEUR(livingMin) + '</span></div>' +
+    '<div class="bd-row"><span>Príjem po odrátaní živ. minima</span><span>' + fmtEUR(disposable) + '</span></div>' +
+    '<div class="bd-row"><span>DSTI limit (' + settings.dstiPercent + ' % z toho)</span><span>' + fmtEUR(disposable * settings.dstiPercent / 100) + '</span></div>' +
+    '<div class="bd-row"><span>Mínus existujúce splátky</span><span>-' + fmtEUR(existing) + '</span></div>' +
+    '<div class="bd-row"><span>Max. úver podľa DTI (' + settings.dtiMultiple + '× ročný príjem)</span><span>' + fmtEUR(maxLoanDti) + '</span></div>' +
+    '<div class="bd-row"><span>LTV (do ' + settings.ltvStandard + ' % štandard, do ' + settings.ltvMax + ' % individuálne)</span><span>' + ltv.toFixed(1).replace('.', ',') + ' % - ' + ltvStatusLabel + '</span></div>';
+
+  lastCalc = {
+    price, down, loan, rate, years, income, adults, children, existing,
+    monthly: Math.round(monthly), maxDsti: Math.round(maxDsti),
+    ltv: Number(ltv.toFixed(1)),
+    dstiOk, dtiOk, ltvOk, ltvIndividual, ltvBlocked
+  };
+}
+
+[priceEl, downEl, rateEl, yearsEl, incomeEl, adultsEl, childrenEl, existingEl].forEach(el => el.addEventListener('input', calc));
+
+calc();
+
+// Lead form
+const leadForm = document.getElementById('leadForm');
+const leadErr = document.getElementById('leadErr');
+const thanksBox = document.getElementById('thanksBox');
+const submitBtn = document.getElementById('leadSubmitBtn');
+
+leadForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  leadErr.style.display = 'none';
+
+  const name = document.getElementById('leadName').value.trim();
+  const phone = document.getElementById('leadPhone').value.trim();
+  const email = document.getElementById('leadEmail').value.trim();
+  const note = document.getElementById('leadNote').value.trim();
+  const consent = document.getElementById('leadConsent').checked;
+
+  if (!name || !phone || !consent) {
+    leadErr.textContent = !consent ? 'Potvrďte prosím súhlas so spracovaním údajov.' : 'Vyplňte prosím meno a telefón.';
+    leadErr.style.display = 'block';
+    return;
+  }
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Odosielam…';
+
+  const lead = {
+    name, phone, email, note,
+    calc: lastCalc,
+    submittedAt: new Date().toISOString()
+  };
+
+  if (!LEAD_ENDPOINT) {
+    leadErr.textContent = 'Formulár ešte nie je pripojený. Doplňte adresu Google Apps Scriptu do konštanty LEAD_ENDPOINT.';
+    leadErr.style.display = 'block';
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Odoslať a chcem ponuku';
+    return;
+  }
+
+  try {
+    const response = await fetch(LEAD_ENDPOINT, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(lead)
+    });
+    leadForm.style.display = 'none';
+    thanksBox.style.display = 'block';
+  } catch (err) {
+    leadErr.textContent = 'Nepodarilo sa odoslať, skúste to prosím znova.';
+    leadErr.style.display = 'block';
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Odoslať a chcem ponuku';
+  }
+});
+</script>
+</body>
+</html>
