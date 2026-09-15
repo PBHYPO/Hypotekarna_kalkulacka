@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ochrana osobných údajov - ProHypo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #14244F;
+    --navy-soft: #223a72;
+    --blue: #2DAAE1;
+    --blue-deep: #1c8ec1;
+    --ice: #EEF6FB;
+    --paper: #FDFEFE;
+    --slate: #5B6B85;
+    --line: #DDE7F0;
+  }
+  *{ box-sizing: border-box; }
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--navy);
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+  }
+  h1, h2{
+    font-family: 'Montserrat', -apple-system, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--navy);
+  }
+  a{ color: var(--blue-deep); }
+  img{ max-width:100%; display:block; }
+  .wrap{ max-width: 760px; margin: 0 auto; padding: 0 28px; }
+
+  header{ padding: 26px 0; border-bottom: 1px solid var(--line); }
+  header .wrap{ max-width: 1080px; display:flex; align-items:center; justify-content: space-between; gap:20px; }
+  .brand{ display:flex; align-items:center; gap:18px; }
+  .brand img{ height: 52px; }
+  .brand-name{
+    font-size: 14px; color: var(--slate);
+    border-left: 1px solid var(--line); padding-left: 18px; line-height:1.3;
+  }
+  .brand-name strong{ color: var(--navy); font-weight:600; display:block; }
+  header nav a{
+    text-decoration:none; font-size:14px; font-weight:500; color: var(--navy);
+    padding: 10px 20px; border-radius: 999px; background: var(--ice);
+  }
+
+  main{ padding: 64px 0 90px; }
+  h1{ font-size: 36px; }
+  .updated{ margin-top: 10px; color: var(--slate); font-size: 14px; }
+  section{ margin-top: 38px; }
+  h2{ font-size: 20px; margin-bottom: 10px; }
+  p, li{ color: #33456f; font-size: 15.5px; }
+  ul{ padding-left: 20px; }
+  li{ margin: 6px 0; }
+  .contact-box{
+    margin-top: 14px;
+    background: var(--ice);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px 20px;
+    font-size: 15px;
+  }
+
+  footer{
+    background: var(--navy); color:#cfd9ec; padding: 40px 0;
+    text-align:center; font-size: 13px;
+  }
+  footer a{ color:#cfd9ec; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAswAAADRCAYAAADYBuR2AAAWfmNhQlgAABZ+anVtYgAAAB5qdW1kYzJwYQARABCAAACqADibcQNjMnBhAAAAFlhqdW1iAAAAR2p1bWRjMm1hABEAEIAAAKoAOJtxA3VybjpjMnBhOjhkZDY1ZGQ4LTYyZGYtNDdiOS05YzUwLWQ0NzdkZGViYmVmMAAAAAOTanVtYgAAAClqdW1kYzJhcwARABCAAACqADibcQNjMnBhLmFzc2VydGlvbnMAAAAAuGp1bWIAAABEanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5pbmdyZWRpZW50LnYzAAAAABhjMnNogxdKcb2KcnC5QJM9pYDrqgAAAGxjYm9yo2lkYzpmb3JtYXRpaW1hZ2UvcG5namluc3RhbmNlSUR4LHhtcDppaWQ6MzhmOGJjYTEtZGY1Ni00ODZlLWIzYzMtNjYwMmFjZjBhYTEwbHJlbGF0aW9uc2hpcGhwYXJlbnRPZgAAAeJqdW1iAAAAQWp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuYWN0aW9ucy52MgAAAAAYYzJzaGt5yErtBiZLC/G/mNK/xb4AAAGZY2JvcqJnYWN0aW9uc4KiZmFjdGlvbmtjMnBhLm9wZW5lZGpwYXJhbWV0ZXJzoWtpbmdyZWRpZW50c4GiY3VybHgtc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5pbmdyZWRpZW50LnYzZGhhc2hYIFGIeBQ75q9o5XrmqZer7JkVmf8dlmSAH/Bdv3b/FfzTpGZhY3Rpb254HWNvbS5hbnRocm9waWMuY2xhdWRlLnByb3ZpZGVkanBhcmFtZXRlcnOheB9jb20uYW50aHJvcGljLm9yaWdpbi1jb25maWRlbmNlZ3Vua25vd25rZGVzY3JpcHRpb254ZkNsYXVkZSBwcm92aWRlZCB0aGlzIGZpbGUgYXQgdGhlIHJlcXVlc3Qgb2YgYSB1c2VyIGFuZCBtYXkgaGF2ZSBjcmVhdGVkIG9yIG1vZGlmaWVkIHRoZSBmaWxlIGNvbnRlbnRzLm1zb2Z0d2FyZUFnZW50oWRuYW1lZkNsYXVkZXJhbGxBY3Rpb25zSW5jbHVkZWT1AAAAyGp1bWIAAABAanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5oYXNoLmRhdGEAAAAAGGMyc2g5fpXvRGotEVczJfoBChBbAAAAgGNib3KlY2FsZ2ZzaGEyNTZjcGFkTQAAAAAAAAAAAAAAAABkaGFzaFggxPVJS0+Tk7mOKRmUiLYXbKWohPiwJMM9Q8/D5h3LKXlkbmFtZW5qdW1iZiBtYW5pZmVzdGpleGNsdXNpb25zgaJlc3RhcnQYIWZsZW5ndGgZFooAAAI+anVtYgAAACdqdW1kYzJjbAARABCAAACqADibcQNjMnBhLmNsYWltLnYyAAAAAg9jYm9ypWNhbGdmc2hhMjU2aXNpZ25hdHVyZXhNc2VsZiNqdW1iZj0vYzJwYS91cm46YzJwYTo4ZGQ2NWRkOC02MmRmLTQ3YjktOWM1MC1kNDc3ZGRlYmJlZjAvYzJwYS5zaWduYXR1cmVqaW5zdGFuY2VJRHgseG1wOmlpZDo3YWE3YzAxYy0wNDg1LTQ3ZDgtOGUzYi1iOGU4OWNkZDdlM2JyY3JlYXRlZF9hc3NlcnRpb25zg6JjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggUYh4FDvmr2jleuapl6vsmRWZ/x2WZIAf8F2/dv8V/NOiY3VybHgqc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5hY3Rpb25zLnYyZGhhc2hYIF+bJ8M1Ib/uuSJO8GL1OAHJdu9+uCyF+3TXF1JilvlZomN1cmx4KXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaGFzaC5kYXRhZGhhc2hYICVyOEgSfmcuc10qHVllDUfakkCLskhfsxr4GGoEm15CdGNsYWltX2dlbmVyYXRvcl9pbmZvo2RuYW1lb0FudGhyb3BpYyBGaWxlc2d2ZXJzaW9uZTEuMC4wa3NwZWNWZXJzaW9uZTIuNC4wAAAQOGp1bWIAAAAoanVtZGMyY3MAEQAQgAAAqgA4m3EDYzJwYS5zaWduYXR1cmUAAAAQCGNib3LShFkCEqIBJhghWQIKMIICBjCCAY2gAwIBAgIUQOWgCu7COdC+uIP6BkIFPWdVEwAwCgYIKoZIzj0EAwMwSTEXMBUGA1UEChMOQW50aHJvcGljLCBQQkMxLjAsBgNVBAMTJUFudGhyb3BpYyBDb250ZW50IENyZWRlbnRpYWxzIFJvb3QgQ0EwHhcNMjYwODA3MTg0MzU2WhcNMjgwODA2MTk0MzU2WjBEMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEpMCcGA1UEAxMgQW50aHJvcGljIENsYXVkZSBDb250ZW50IFNpZ25pbmcwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASYegpry1AYBRTVNL1CpTlbROnY3dey+UrsF9C3phYrATN3ZHf93Mo8RQN0KOUuOn19P4oWNFWe5n2/She9N7eTo1gwVjAOBgNVHQ8BAf8EBAMCB4AwFQYDVR0lBA4wDAYKKwYBBAGD6F4CATAMBgNVHRMBAf8EAjAAMB8GA1UdIwQYMBaAFM5R4gSBTmRbI/jjxM+aPpzB11zCMAoGCCqGSM49BAMDA2cAMGQCMDFzHRSeAXrSy1WOzkbhPZ6Km2wGTmZ/2gK18k8BQGXyqz88Rdrz6CTX9flAnYNVxgIwcF9c3fVhqmJKpi+UhasNUMko69cyX6STPfta3Q8EjyzDjzoyrol46FP6VFHhvUcJoWNwYWRZDZ4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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" alt="ProHypo">
+      <span class="brand-name"><strong>Patrik Buchanec</strong>hypotekárny špecialista</span>
+    </div>
+    <nav><a href="index.html">Späť na stránku</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <h1>Ochrana osobných údajov</h1>
+    <p class="updated">Posledná aktualizácia: september 2026</p>
+
+    <section>
+      <h2>1. Prevádzkovateľ</h2>
+      <p>Prevádzkovateľom osobných údajov je:</p>
+      <div class="contact-box">
+        <strong>Patrik Buchanec</strong><br>
+        Hypotekárny špecialista<br>
+        Adresa: Bajkalská 18632/45C, 82105 Bratislava<br>
+        IČO: 52559122<br>
+        E-mail: <strong>patrik.buchanec@prohypo.sk</strong><br>
+        Telefón: <strong>0950 590 434</strong>
+      </div>
+      <p>Ak máte akékoľvek otázky týkajúce sa spracúvania vašich osobných údajov, môžete nás kontaktovať prostredníctvom vyššie uvedených kontaktných údajov.</p>
+    </section>
+
+    <section>
+      <h2>2. Aké osobné údaje spracúvame</h2>
+      <p>Prostredníctvom hypotekárnej kalkulačky môžeme spracúvať najmä tieto údaje:</p>
+      <ul>
+        <li>meno a priezvisko,</li>
+        <li>telefónne číslo,</li>
+        <li>e-mailovú adresu (ak ju uvediete),</li>
+        <li>orientačné údaje potrebné na posúdenie možností financovania, napríklad:
+          <ul>
+            <li>cena nehnuteľnosti,</li>
+            <li>výška vlastných zdrojov,</li>
+            <li>výška požadovaného úveru,</li>
+            <li>príjem,</li>
+            <li>vek,</li>
+            <li>ďalšie údaje, ktoré dobrovoľne uvediete vo formulári.</li>
+          </ul>
+        </li>
+      </ul>
+      <p>Nevyžadujeme viac údajov, než je potrebné na posúdenie vášho dopytu.</p>
+    </section>
+
+    <section>
+      <h2>3. Na aký účel údaje spracúvame</h2>
+      <p>Vaše osobné údaje spracúvame za účelom:</p>
+      <ul>
+        <li>kontaktovania na základe vášho dopytu,</li>
+        <li>orientačného posúdenia možností financovania,</li>
+        <li>prípravy individuálnej ponuky hypotekárneho riešenia,</li>
+        <li>následnej komunikácie súvisiacej s vybavením hypotéky.</li>
+      </ul>
+      <p>Vaše údaje nepoužívame na automatizované rozhodovanie ani profilovanie podľa článku 22 GDPR.</p>
+    </section>
+
+    <section>
+      <h2>4. Právny základ spracúvania</h2>
+      <p>Osobné údaje spracúvame podľa článku 6 ods. 1 písm. b) Nariadenia Európskeho parlamentu a Rady (EÚ) 2016/679 (GDPR), teda za účelom vykonania opatrení pred uzatvorením zmluvy na základe vašej žiadosti.</p>
+      <p>Ak by sme vaše údaje chceli použiť na marketingové účely, urobíme tak iba na základe samostatného právneho základu alebo vášho súhlasu, ak to bude potrebné.</p>
+    </section>
+
+    <section>
+      <h2>5. Komu môžu byť údaje sprístupnené</h2>
+      <p>Vaše údaje neposkytujeme tretím osobám, pokiaľ to nie je nevyhnutné na vybavenie vášho dopytu alebo ak nám na to neudelíte súhlas.</p>
+      <p>Príjemcami údajov môžu byť najmä:</p>
+      <ul>
+        <li>banky, ktoré si spoločne vyberiete pri riešení financovania,</li>
+        <li>poskytovatelia IT služieb zabezpečujúcich prevádzku formulára,</li>
+        <li>poskytovatelia cloudových služieb spoločnosti Google (Google Workspace, Google Sheets a Google Apps Script).</li>
+      </ul>
+      <p>Pri využívaní služieb Google môže dôjsť k prenosu údajov mimo Európskeho hospodárskeho priestoru. Takýto prenos je zabezpečený v súlade s požiadavkami GDPR prostredníctvom primeraných ochranných mechanizmov.</p>
+    </section>
+
+    <section>
+      <h2>6. Ako dlho údaje uchovávame</h2>
+      <p>Vaše osobné údaje uchovávame iba počas doby potrebnej na vybavenie vášho dopytu a následnej komunikácie.</p>
+      <p>Najdlhšie však po dobu 24 mesiacov od posledného kontaktu, pokiaľ právne predpisy nevyžadujú ich uchovanie dlhšie.</p>
+    </section>
+
+    <section>
+      <h2>7. Je poskytnutie údajov povinné?</h2>
+      <p>Poskytnutie osobných údajov je dobrovoľné.</p>
+      <p>Bez základných kontaktných údajov však nie je možné pripraviť individuálnu ponuku ani vás kontaktovať v súvislosti s vaším dopytom.</p>
+    </section>
+
+    <section>
+      <h2>8. Vaše práva</h2>
+      <p>V súvislosti so spracúvaním osobných údajov máte právo:</p>
+      <ul>
+        <li>požiadať o prístup k svojim osobným údajom,</li>
+        <li>požiadať o opravu nepresných alebo neúplných údajov,</li>
+        <li>požiadať o vymazanie osobných údajov, ak sú splnené podmienky GDPR,</li>
+        <li>požiadať o obmedzenie spracúvania,</li>
+        <li>namietať proti spracúvaniu, ak to umožňuje právny základ,</li>
+        <li>požiadať o prenosnosť údajov, ak sú splnené zákonné podmienky,</li>
+        <li>podať sťažnosť na Úrad na ochranu osobných údajov Slovenskej republiky, ak sa domnievate, že vaše osobné údaje spracúvame v rozpore s právnymi predpismi.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>9. Bezpečnosť údajov</h2>
+      <p>Prijímame primerané technické a organizačné opatrenia na ochranu osobných údajov pred stratou, zneužitím, neoprávneným prístupom alebo zverejnením.</p>
+      <p>Prístup k údajom majú iba oprávnené osoby, ktoré ich potrebujú na vybavenie vášho dopytu.</p>
+    </section>
+
+    <section>
+      <h2>10. Kontakt</h2>
+      <p>Ak máte otázky týkajúce sa ochrany osobných údajov alebo si chcete uplatniť niektoré zo svojich práv, kontaktujte nás:</p>
+      <div class="contact-box">
+        E-mail: <strong>patrik.buchanec@prohypo.sk</strong><br>
+        Telefón: <strong>0950 590 434</strong>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  © <span id="year"></span> Patrik Buchanec - <a href="index.html">Späť na hlavnú stránku</a>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
